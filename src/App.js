@@ -1,16 +1,21 @@
 import "./App.css";
-import { Header} from "./models/Header";
-import { Cocktails} from "./models/Cocktails";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Search from "./routes/Search.js";
+import Home from "./routes/Home.js";
+import TierList from "./routes/TierList.js";
 import React from 'react';
 
-function App(){
-  const [value, setValue] = React.useState('');
-  
+function App() {
+
+
   return (
-  <div className="app">
-    <Header value={value} setValue={setValue}></Header>
-    <Cocktails name={value}></Cocktails>
-  </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/search" element={<Search />}></Route>
+        <Route path="/tier-list" element={<TierList />}></Route>
+        <Route path="/" element={<Home />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
