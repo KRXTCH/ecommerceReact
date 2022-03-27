@@ -1,5 +1,5 @@
 import { styled } from "@mui/system";
-import { Card, Grid } from "@mui/material";
+import { Card, Grid, Pagination } from "@mui/material";
 
 export const CHeader = styled('div')({
     backgroundColor: 'lightsteelblue',
@@ -48,7 +48,7 @@ export const CLoaderIframe = styled('iframe')({
 })
 
 export const CCocktailsContainer = styled('div')({
-    padding: '5rem'
+    padding: '3rem'
 })
 
 export const CGrid = styled(Grid)({
@@ -82,5 +82,12 @@ export const CText = styled('p')({
     fontFamily: 'Nunito, sans-serif',
     fontSize: '1.25rem',
     color: "gray",
-    marginLeft: '1rem'
+    marginLeft: '40px'
+})
+
+export const CPagination = styled(Pagination)({
+    position: 'absolute',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    marginTop: '2rem'
 })
