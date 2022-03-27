@@ -1,0 +1,78 @@
+iframe{
+    border: none;
+}
+
+.header{
+    background-color: lightsteelblue;
+    height: fit-content;
+    padding: 2rem 5rem;
+    display: inline-flex;
+    width: -moz-available;
+}
+
+.header iframe{
+    height: 5rem;
+    width: 10rem;
+    position: absolute;
+    top: 0;
+}
+
+.loader iframe{
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cocktails{
+    padding: 5rem;
+}
+
+.grid{
+    justify-content: center;
+}
+
+.card{
+    width: fit-content;
+    height: fit-content;
+    min-height: 18rem;
+    box-shadow: 0px 0px 18px 1px rgba(0,0,0,0.3) !important
+}
+
+.card img{
+    width: 11rem;
+    height: auto;
+}
+
+.drink-info{
+    width: 9rem;
+    padding: 1rem;
+}
+
+.drink-name{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    max-width: 11rem;
+}
+
+.header-name{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    line-height: 6rem;
+    position: absolute;
+    margin-left: 9rem;
+    top: 0;
+}
+
+.input-search{
+    height: 2rem;
+    border-radius: 20px;
+    border: none;
+    margin: auto;
+    width: 20rem;
+    padding: 0 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+}
