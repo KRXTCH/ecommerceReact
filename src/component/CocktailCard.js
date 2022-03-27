@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Box, Card, CardContent } from "@mui/material";
-import loading from "../img/loading.gif"
+import Loading from "../img/loading.gif";
 
 export default function CocktailCard() {
   const [cocktail, setCocktail] = React.useState("");
@@ -70,7 +70,7 @@ export default function CocktailCard() {
             </CardContent>
           </>
         ) : (
-          <img src={loading} width="128"/>
+          <img src={Loading} width="128" />
         )}
       </Card>
     </Box>
