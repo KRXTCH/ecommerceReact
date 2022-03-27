@@ -3,7 +3,8 @@
 import React, { useEffect } from "react";
 import Loader from "../ressources/gifs/loader.gif";
 import { CLoaderIframe, CCocktailsContainer, CGrid, CCard, CCardImage, CDrinkInfo, CDrinkName, CText, CPagination } from "./Styles/CustomElements";
-import { Grid } from "@mui/material";
+import {Grid} from "@mui/material";
+import {Link, Outlet} from "react-router-dom";
 
 
 export function Cocktails(props) {
@@ -54,10 +55,12 @@ export function Cocktails(props) {
                     return (
                         <Grid item>
                             <CCard>
-                                <CCardImage src={element.strDrinkThumb} alt={element.strDrinkThumb}></CCardImage>
-                                <CDrinkInfo>
-                                    <CDrinkName>{element.strDrink}</CDrinkName>
-                                </CDrinkInfo>
+                                <Link style={{textDecoration: 'none'}} to={'details/' + element.idDrink}>
+                                    <CCardImage src={element.strDrinkThumb} alt={element.strDrinkThumb}></CCardImage>
+                                    <CDrinkInfo>
+                                        <CDrinkName>{element.strDrink}</CDrinkName>
+                                    </CDrinkInfo>
+                                </Link>
                             </CCard>
                         </Grid>
                     )
@@ -67,12 +70,14 @@ export function Cocktails(props) {
                 .map((element) => {
                     return (
                         <Grid item>
-                            <CCard>
-                                <CCardImage src={element.strDrinkThumb} alt={element.strDrinkThumb}></CCardImage>
-                                <CDrinkInfo>
-                                    <CDrinkName>{element.strDrink}</CDrinkName>
-                                </CDrinkInfo>
-                            </CCard>
+                            <Link style={{textDecoration: 'none'}} to={'details/' + element.idDrink}>
+                                <CCard>
+                                    <CCardImage src={element.strDrinkThumb} alt={element.strDrinkThumb}></CCardImage>
+                                    <CDrinkInfo>
+                                        <CDrinkName>{element.strDrink}</CDrinkName>
+                                    </CDrinkInfo>
+                                </CCard>
+                            </Link>
                         </Grid>
                     )
                 })
@@ -85,6 +90,7 @@ export function Cocktails(props) {
             <CGrid container spacing={5}>
                 {html}
             </CGrid>
+            <Outlet/>
             <CPagination
                 count={Math.ceil(items.drinks.length / 14)}
                 onChange={handleChange}
