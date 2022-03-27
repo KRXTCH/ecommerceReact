@@ -12,7 +12,7 @@ import {
 import CocktailCard from "../component/CocktailCard";
 
 export default function Home() {
-  const _navigate = useNavigate();
+  const navigate = useNavigate();
 
   const styles = {
     card: {
@@ -56,7 +56,7 @@ export default function Home() {
                 <Button
                   variant="outlined"
                   style={styles.button}
-                  onClick={() => _navigate("/search")}
+                  onClick={() => navigate("/search")}
                 >
                   Rechercher des cocktails
                 </Button>

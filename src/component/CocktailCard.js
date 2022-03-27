@@ -63,7 +63,7 @@ export default function CocktailCard() {
                 <p>- {cocktail.strIngredient1}</p>
               ) : null}
               {cocktail.strIngredient1 ? (
-                <p>- {cocktail.strIngredient2}</p>
+                <p>- {cocktail.strIngredient2} etc ...</p>
               ) : null}
               <h4 style={styles.cardTitle}>Préparation</h4>
               <p>{cocktail.strInstructions}</p>
