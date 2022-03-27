@@ -77,3 +77,10 @@ export const CDrinkName = styled('p')({
     fontSize: '1rem',
     maxWidth: '11rem'
 })
+
+export const CText = styled('p')({
+    fontFamily: 'Nunito, sans-serif',
+    fontSize: '1.25rem',
+    color: "gray",
+    marginLeft: '1rem'
+})

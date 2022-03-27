@@ -1,6 +1,8 @@
+//Jelezian Lorys
+
 import React, { useEffect } from "react";
 import Loader from "../ressources/gifs/loader.gif";
-import { CLoaderIframe, CCocktailsContainer, CGrid, CCard, CCardImage, CDrinkInfo, CDrinkName } from "./Styles/CustomElements";
+import { CLoaderIframe, CCocktailsContainer, CGrid, CCard, CCardImage, CDrinkInfo, CDrinkName, CText } from "./Styles/CustomElements";
 import { Grid } from "@mui/material";
 
 export function Cocktails(props) {
@@ -51,6 +53,7 @@ export function Cocktails(props) {
 
     return (
         <CCocktailsContainer>
+            <CText>Tous nos cocktails :</CText>
             <CGrid container spacing={5}>
                 {html}
             </CGrid>
