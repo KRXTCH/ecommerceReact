@@ -13,7 +13,6 @@ import CocktailCard from "../component/CocktailCard";
 
 export default function Home() {
   const _navigate = useNavigate();
-  const MAX_COCKTAIL_NUMBER = 100;
 
   const styles = {
     card: {
@@ -73,28 +72,20 @@ export default function Home() {
       <Grid container spacing={0}>
         <Grid item sm={1} md={2} />
         <Grid item xs={6} sm={5} md={4}>
-          <CocktailCard
-            iCocktailId={Math.floor(Math.random() * MAX_COCKTAIL_NUMBER)}
-          />
+          <CocktailCard />
         </Grid>
         <Grid item xs={6} sm={5} md={4}>
-          <CocktailCard
-            iCocktailId={Math.floor(Math.random() * MAX_COCKTAIL_NUMBER)}
-          />
+          <CocktailCard />
         </Grid>
         <Grid item sm={1} md={2} />
       </Grid>
       <Grid container spacing={0}>
         <Grid item sm={1} md={2} />
         <Grid item xs={6} sm={5} md={4}>
-          <CocktailCard
-            iCocktailId={Math.floor(Math.random() * MAX_COCKTAIL_NUMBER)}
-          />
+          <CocktailCard />
         </Grid>
         <Grid item xs={6} sm={5} md={4}>
-          <CocktailCard
-            iCocktailId={Math.floor(Math.random() * MAX_COCKTAIL_NUMBER)}
-          />
+          <CocktailCard />
         </Grid>
         <Grid item sm={1} md={2} />
       </Grid>
