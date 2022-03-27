@@ -1,75 +1,59 @@
-// import React from "react";
-// import { Card, Grid } from "@mui/material";
-// import "./CustomCard.css";
+import React, { useEffect } from "react";
+import Loader from "../ressources/gifs/loader.gif";
+import { CLoaderIframe, CCocktailsContainer, CGrid, CCard, CCardImage, CDrinkInfo, CDrinkName } from "./Styles/CustomElements";
+import { Grid } from "@mui/material";
 
-// export class Cocktails extends React.Component {
-//   constructor(props) {
-//     super(props);
+export function Cocktails(props) {
+    const [items, setItems] = React.useState("");
+    const [dataLoaded, setDataLoaded] = React.useState(false);
+    const { name } = props;
+    let html;
 
-//     this.state = {
-//       items: [],
-//       DataisLoaded: false,
-//     };
-//   }
+    const FetchFromUriAsync = async () => {
+        try {
+            const resp = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink")
+                .then(r => r.json());
 
-//   componentDidMount(uri) {
-//     if(uri === "" || uri == null){
-//       uri = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
-//     }
-//     console.log(uri);
-//     fetch(
-//       uri
-//     )
-//       .then((res) => res.json())
-//       .then((json) => {
-//         if(json.drinks != null){
-//           this.setState({
-//             items: json,
-//             DataisLoaded: true,
-//           });
-//         }
-//       });
-//   }
+            setItems(resp)
+            setDataLoaded(true)
+        } catch (e) {
+            console.log(e)
+            setDataLoaded(false)
+        }
+    }
 
-//   render() {
-//     let uri = "";
-//     const searchValue = this.props;
-//     const { DataisLoaded, items } = this.state;
+    useEffect(() => {
+        FetchFromUriAsync();
+    }, [])
 
-//     if(searchValue.name.length > 0){
-//       console.log(searchValue.name)
 
-//       uri = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + JSON.stringify(searchValue.name).replace('"', '').slice(0, -1);
-//       this.componentDidMount(uri)
-//     } else {
-//       uri = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink";
-//     }
+    if (!dataLoaded) {
+        return (
+            <div>
+                <CLoaderIframe src={Loader} alt="Loading..."></CLoaderIframe>
+            </div>
+        );
+    } else {
+        html = items.drinks.filter(e => e.strDrink.toLowerCase().startsWith(name.toLowerCase()))
+            .map((element) => {
+                return (
+                    <Grid item>
+                        <CCard>
+                            <CCardImage src={element.strDrinkThumb} alt={element.strDrinkThumb}></CCardImage>
+                            <CDrinkInfo>
+                                <CDrinkName>{element.strDrink}</CDrinkName>
+                            </CDrinkInfo>
+                        </CCard>
+                    </Grid>
+                )
+            })
+    }
 
-//     if (!DataisLoaded)
-//       return (
-//         <div className="loader">
-//           <iframe src="https://embed.lottiefiles.com/animation/8438"></iframe>
-//         </div>
-//       );
-
-//     return (
-//       <div className="cocktails">
-//         <Grid container className="grid" spacing={5}>
-//           {items.drinks.map((drink) => (
-//               <Grid item>
-//                   <Card className="card">
-//                     <img
-//                       src={drink.strDrinkThumb}
-//                       alt={drink.strDrinkThumb}
-//                     ></img>
-//                     <div className="drink-info">
-//                         <p className="drink-name">{drink.strDrink}</p>
-//                     </div>
-//                   </Card>
-//               </Grid>
-//           ))}
-//         </Grid>
-//       </div>
-//     );
-//   }
-// }
+    return (
+        <CCocktailsContainer>
+            <CGrid container spacing={5}>
+                {html}
+            </CGrid>
+        </CCocktailsContainer>
+    );
+}
