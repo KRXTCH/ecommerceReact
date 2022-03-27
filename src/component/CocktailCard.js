@@ -12,9 +12,7 @@ export default function CocktailCard() {
       const aResponse = await fetch(
         "https://www.thecocktaildb.com/api/json/v1/1/random.php"
       ).then((r) => r.json());
-      console.log(aResponse.drinks[0]);
       setCocktail(aResponse.drinks[0]);
-      console.log(cocktail);
     } catch (e) {}
   };
 
